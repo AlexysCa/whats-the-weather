@@ -19,3 +19,8 @@
     background-color:var(--element-fill);
     padding: 3px;
 }
+/* search button styling */
+#search-btn {
+    background-color: var(--fill-in-color);
+    color:var(--second-font);
+}
