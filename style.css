@@ -1,0 +1,21 @@
+/* styling for overall app*/
+:root {
+    --main-font: black;
+    --second-font: white;
+    --fill-in-color: peru;
+    --element-fill: tan;
+}
+
+* {
+    background-color: white;
+}
+
+/* header styling*/
+.weather-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px var(--element-fill);
+    background-color:var(--element-fill);
+    padding: 3px;
+}
