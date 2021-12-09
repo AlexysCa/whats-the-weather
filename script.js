@@ -35,6 +35,37 @@ $ajax({
     var cityLon = response.coord.lon;
     var cityLat = response.coord.lat;
 
+var geUrlUv = 'https://api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&exclude=hourly,daily,minutely&appid=${key}';
 
-})
+$ajax({
+    url: getUrlUvi,
+    method: 'GET',
+}).then(function (response){
+    var pUviElement = $('<p>').text('UV Index: ');
+    var uviSpan = $('<span>').text(response.current.uvi);
+    var uvi = response.current.uvi;
+    pUviElement.append(uviSpan);
+    cardBodyToday.append(pUviElement);
+
+    if (uvi >= 0 && uvi <= 2) {
+        uviSpan.attr('class', 'green');
+    } else if (uvi > 2 && uvi <= 5) {
+        uviSpan.attr('class', 'yellow')
+    } else if (uvi > 5 && uvi <+ 7) {
+        uviSpan.attr('class', 'orange')
+    } else if (uvi > 7 && uvi <= 10) {
+        uviSpan.attr('class', 'red')
+    } else {
+        uviSpan.attr('class', 'purple')
+    }
+});
+// end of current weather
+
+});
+};
+
+var fiveDayForcast = $(',fiveDay');
+
+function getFiveDayForcast(){
+    var getUrlFiveDay = 'https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${key}';
 }
