@@ -68,4 +68,20 @@ var fiveDayForcast = $(',fiveDay');
 
 function getFiveDayForcast(){
     var getUrlFiveDay = 'https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${key}';
+
+    $ajax({
+        url: getUrlFiveDay,
+        method: 'GET',
+    }).then(function (response){
+        var fiveDayList = response.list;
+        var fiveWeather = [];
+
+        $.each(fiveDayList, function (index, value) {
+            testObj = {
+                date: value.dt_txt.split(' ')[0],
+                time: value.dt_txt.split(' ')[1],
+                temp: value.main.temp,
+            }
+        })
+    })
 }
