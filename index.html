@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--style sheet-->
-<link rel="stylesheet" href="./style.css">
+<link href="./style.css" rel="stylesheet">
 
 <head>
     <meta charset="UTF-8">
@@ -9,30 +9,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
 </head>
+
 <header>
     <div>
         <h1 class="weather-header">Weather Dashboard</h1>
     </div>
 </header>
+
 <body>
-<section class="city-search" id="city-search">
-    <div>
-        <h2>Search for a City:</h2>
-        <input type="text" id="search-for">
-        <button id="search-btn">Search</button>
-    </div>
-</section>
+    <main class="main-section">
+<!--left side search area where cities are searched and stored-->
+        <div class="row">
+            <div class="col-12 col-md-3 col-xl-3 col0one">
+                <h2>Search for a city:</h2>
+                <div class="city-input md-3">
+                    <input type="text" class="form-control textValue" placeholder="Enter City Here">
+                    <div class="city-input-btn">
+                        <button class="search-btn" type="button" id="btn">Search<i class="city-search"></button>
+                    </div>
+                </div> 
+        <!--listed cities searched appended here-->
+        <div class="city-list"></div>
+            </div>
+<!--center section where current info for searched city will appear-->
+        <div class="col-12 col-md-9 col-xl-9 colTwo">
+            <div class="row current">
+                <div class="card bg-light mb-3" style="max-width: 400px;">
+                    <h2 class="card-header cardTodayCityName"></h2>
+                    <h3 class="card-header cardTodayDate"></h3>
+                    <img class="icons"/>
+                    <div class="card-body cardBody">
+                    </div>
+                </div>
 
-<section class="current-weather" id="current-weather">
 
-</section>
+            </div>
+<!--bottom center section with 5 day forcast here-->
+            <div class="row fiveDay"></div>
 
-<section class="five-day" id="five-day">
+        </div>
 
-</section>
+        </div>
+
+    </main>
     
 
 <!--javascript sheet-->
-<script src="./style.css"></script>    
+<script src="./script.js"></script>    
 </body>
 </html>

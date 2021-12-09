@@ -1,12 +1,12 @@
-/* styling for overall app*/
+/* styling for overall app*/ 
 :root {
     --main-font: black;
     --second-font: white;
     --fill-in-color: peru;
     --element-fill: tan;
-}
+} 
 
-* {
+ * {
     background-color: white;
 }
 
@@ -20,7 +20,7 @@
     padding: 3px;
 }
 /* search button styling */
-#search-btn {
+.search-btn {
     background-color: var(--fill-in-color);
     color:var(--second-font);
 }
