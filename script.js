@@ -58,6 +58,42 @@ function startSite() {
             });
 
             // 5 day weather will go here
+            var cityId = response.data.id;
+            var forecastUrl = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityId + "&appid=" + Key;
+            axios.get(forecastUrl) 
+            .then(function (response) {
+                fiveDayEl.classList.remove("d-none");
+
+            // displays 5 day future forecast
+            var forecastElement = document.querySelectorAll(".forecast");
+            for (i = 0; i < forecastElement.length; i++) {
+                forecastElement[i].innerHTML = "";
+                var forecastndex = i * 8 + 4;
+                var forecastDate = new Date(response.data.list[forecastndex].dt * 1000);
+                var forecastDay = forecastDate.getDate();
+                var forecastMonth = forecastDate.getMonth() + 1;
+                var forecastYear = forecastDate.getFullYear();
+                var forecastDateEl = document.createElement("p");
+
+                forecastDateEl.setAttribute("class", "mt-3 mb-0 forecast-date");
+                forecastDateEl.innerHTML = forecastMonth + "/" + forecastDay + "/" + forecastYear;
+                forecastElement[i].append(forecastDateEl);
+
+            // icons for weather
+            var forecastWeatherEl = document.createElement("img");
+            forecastWeatherEl.setAttribute("src", "https://openweathermap.org/img/wn/" + response.data.list[forecastndex].weather[0].icon + "@2x.png");
+            forecastWeatherEl.setAttribute("alt", response.data.list[forecastndex].weather[0].description);
+            forecastElement[i].append(forecastWeatherEl);
+
+            var forecastTempEl = document.createElement("p");
+            forecastTempEl.innerHTML = "Temperature: " + k2f(response.data.list[forecastndex].main.temp) + " &#176F";
+            forecastElement[i].append(forecastTempEl);
+
+            var forecastHumidEl = document.createElement("p");
+            forecastHumidEl.innerHTML = "Humidity: " + response.data.list[forecastndex].main.humidity + "%";
+            forecastElement[i].append(forecastHumidEl);
+            }
+            })
         })
     }
     // get searched cities from local storage
