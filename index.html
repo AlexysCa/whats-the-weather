@@ -18,6 +18,7 @@
 
     <div class="container-fluid">
         <div class="row">
+<!--search area to look up desired city weather -->
             <div class="col-lg-3 bg-light">
                 <h2 class="mt-1">Search For A City:</h2>
                 <div class="input-group mb-3">
@@ -26,10 +27,12 @@
                         <button class="btn btn-primary" type="button" id="search-button">Search</button>
                     </div>
                 </div>
+<!-- list of searched cities-->
                     <form id="history"></form>
             </div>
             <div class="col-lg-9">
                 <div class="row mr-0">
+<!-- searched city current weather info here-->
                     <div class="cp;-lg-11 card m-3 d-none" id="current-weather">
                         <div class="card-body">
                            <h2 id="city-name" class="city-name align-middle"></h2> 
@@ -42,6 +45,7 @@
                     </div>
                 </div>
                 <div class="row d-none" id="fiveday-header">
+<!-- 5 day future weather for searched city-->
                     <div class="col-12">
                         <h3>5-Day Weather Forecast:</h3>
                     </div>
@@ -56,5 +60,8 @@
             </div>
         </div>
     </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./script.js"></script>
 </body>
 </htmL>
