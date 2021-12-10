@@ -36,7 +36,7 @@ function startSite() {
             currentHumidEl.innerHTML = "Humidity: " + response.data.main.humidity + "%";
             currentWindEl.innerHTML = "Wind Speed: " + response.data.wind.speed + " MPH";
 
-            // uv inder
+            // uv index  
             var lat = response.data.coord.lat;
             var lon = response.data.coord.lon;
             var uvUrl = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + Key + "&cny=1";
@@ -95,9 +95,42 @@ function startSite() {
             })
         })
     }
+    // get searched cities from local storage
+    searchElement.addEventListener("click", function(){
+        var searchVal = cityElement.value;
+        getWeather(searchVal);
+        searchHistory.push(searchVal);
+        localStorage.setItem("search", JSON.stringify(searchHistory));
+        renderSearchHist();
+    })
 
+    function k2f(K) {
+        return Math.floor((K - 273.15) * 1.8 + 32);
+    }
+
+    function renderSearchHist() {
+        cityHistory.innerHTML = "";
+        for (var i = 0; i < searchHistory.length; i++) {
+            var searchItem = document.createElement("input");
+            searchItem.setAttribute("type", "text");
+            searchItem.setAttribute("readonly", true);
+            searchItem.setAttribute("class", "form-control d-block bg-white");
+            searchItem.setAttribute("value", searchHistory[i]);
+            searchItem.addEventListener("click", function (){
+                getWeather(searchItem.value);
+            })
+            cityHistory.append(searchItem);
+        }
+    }
+
+    renderSearchHist();
+    if (searchHistory.length > 0) {
+        getWeather(searchHistory[searchHistory.length - 1]);
+    }
 
 }
+
+startSite();
 
 
 console.log("hi test");
