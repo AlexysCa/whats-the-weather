@@ -96,8 +96,7 @@ function startSite() {
             var forecastWindEl = document.createElement("p");
             forecastWindEl.innerHTML = "Wind Speed: " + response.data.list[forecastndex].wind.speed + " MPH";
             forecastElement[i].append(forecastWindEl);
-
-                }
+            }
             })
         })
     }
