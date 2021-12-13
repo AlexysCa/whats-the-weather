@@ -6,6 +6,8 @@ multiple cities so they can plan their trip accordingly.
 
 ### URL Link
 
+https://alexysca.github.io/whats-the-weather/
+
 ### URL Screenshots
 
 <img width="1219" alt="Screen Shot 2021-12-12 at 8 50 38 PM" src="https://user-images.githubusercontent.com/92767735/145740470-56e4ca79-c4ed-4967-9997-955a36a88e7e.png">
