@@ -92,7 +92,12 @@ function startSite() {
             var forecastHumidEl = document.createElement("p");
             forecastHumidEl.innerHTML = "Humidity: " + response.data.list[forecastndex].main.humidity + "%";
             forecastElement[i].append(forecastHumidEl);
-            }
+
+            var forecastWindEl = document.createElement("p");
+            forecastWindEl.innerHTML = "Wind Speed: " + response.data.list[forecastndex].wind.speed + " MPH";
+            forecastElement[i].append(forecastWindEl);
+
+                }
             })
         })
     }
